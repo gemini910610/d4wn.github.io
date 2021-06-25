@@ -1,0 +1,114 @@
+@font-face {
+  font-family: sao;
+  src: url("../SAOUITT-Regular.ttf");
+}
+
+body {
+  font-family: sao;
+}
+
+.aincrad {
+  background-image: url("../img/Aincrad.jpg");
+  min-height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.sao-menu {
+  background-color: transparent;
+  position: fixed !important;
+  z-index: 1;
+  top: 0;
+  right: 0;
+}
+
+.sao-option {
+  display: block;
+  float: none;
+  background-color: transparent;
+  background-image: url("../img/btn_normal.png");
+  background-repeat: no-repeat;
+  width: 64px;
+  height: 64px;
+}
+
+.circle {
+  background-color: transparent;
+  height: 48px;
+  width: 32px;
+  border-radius: 50%;
+}
+
+.info-option {
+  background-color: transparent;
+  background-image: url("../img/info_normal.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+}
+
+.plugin-option {
+  background-color: transparent;
+  background-image: url("../img/plugin_normal.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+}
+
+.setting-option {
+  background-color: transparent;
+  background-image: url("../img/setting_normal.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+}
+
+#menu {
+    transition: transform 0.4s;
+}
+
+#sao_menu_panel {
+    color: black;
+    width: 0px;
+    height: 270px;
+    background-image: url('../img/panel_main_bg.png');
+    position: fixed;
+    top: 20px;
+    right: 140px;
+    transition: width 0.4s;
+}
+
+#panel_title {
+    height: 42px;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+#panel_hori {
+    height: 1px;
+    background-color: #919191;
+    border-bottom: 1px solid #cbcbcb;
+    margin: 0 15px;
+}
+
+#panel_main {
+    height: 227px;
+    transition: opacity 0.2s;
+    opacity: 0;
+}
+
+#panel_right_arrowhead {
+    border-top: 12.5px solid transparent;
+    border-bottom: 12.5px solid transparent;
+    border-left: 25px solid white;
+    display:inline-block;
+    position: fixed;
+    top: 65px;
+    right: 115px;
+    opacity: 0;
+    transform: translateX(-22px);
+    transition: transform 0.2s, opacity 0.2s;
+}	

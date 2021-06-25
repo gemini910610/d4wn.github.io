@@ -1,0 +1,209 @@
+@font-face {
+  font-family: a_kso;
+  src: url("../A_KsoKagerou.otf");
+}
+
+@font-face {
+  font-family: sao;
+  src: url("../SAOUITT-Regular.ttf");
+}
+
+.a_kso {
+  font-family: a_kso,sao,sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+}
+html::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  margin: 0;
+  font-size: 18px;
+  height: 100vh;
+  user-select: none;
+  color: turquoise;
+  background-color: black;
+}
+
+.center {
+  text-align: center !important;
+}
+
+.button {
+  display: inline-block;
+  vertical-align: middle;
+  /*cursor: pointer;*/
+  padding: 8px 16px;
+  color: white;
+  background-color: black;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.button-color-none {
+  color: inherit !important;
+  background-color: transparent !important;
+}
+
+.hover-blue:hover {
+  color: white !important;
+  background-color: blue !important;
+}
+
+.text-size-24 {
+  font-size: 24px !important;
+}
+.text-size-36 {
+  font-size: 36px !important;
+}
+.text-size-48 {
+  font-size: 48px !important;
+}
+.text-size-64 {
+  font-size: 64px !important;
+}
+
+.top {
+  top: 0;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+}
+.left {
+  float: left;
+}
+.right {
+  float: right !important;
+}
+.bottom {
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+}
+
+.container {
+  padding: 0.01em 16px;
+}
+
+.bar {
+  width: 100%;
+  overflow: hidden;
+}
+
+.bar-item {
+  padding: 8px 16px;
+  float: left;
+}
+
+.white {
+  color: white;
+}
+
+.turquoise {
+  color: turquoise;
+}
+
+.black {
+  color: black;
+}
+
+.background-black {
+  background-color: black !important;
+}
+
+.background-transparent {
+  background-color: transparent;
+}
+
+.gradual {
+  background: linear-gradient(to right, black 25%, rgba(0, 0, 0, 0) 40%);
+}
+
+.background {
+  background-image: url("../img/background.jpg");
+  min-height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.background-2 {
+  background-image: url("../img/sao-background.jpg");
+  min-height: 100%;
+  background-size: cover;
+  background-position: bottom;
+}
+
+.display-container {
+  position: relative;
+}
+
+.display-middle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.sidebar {
+  height: 100%;
+  width: 200px;
+  background-color: #fff;
+  position: fixed !important;
+  z-index: 1;
+}
+
+.sidebar .bar-item {
+  display: block;
+  padding: 8px 16px;
+  text-align: left;
+  float: none;
+}
+
+.animate-left {
+  position: relative;
+  animation: animateleft 0.4s;
+}
+@keyframes animateleft {
+  from {
+    left: -300px;
+    opacity: 0;
+  }
+  to {
+    left: 0;
+    opacity: 1;
+  }
+}
+
+.animate-top {
+  position: relative;
+  animation: animatetop 0.4s;
+}
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+.round {
+  border-radius: 0px 0px 8px 0px;
+}
+
+.round-all {
+  border-radius: 16px;
+}
+
+.text-stroke {
+  text-shadow: 1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black, -1px 1px 0 black;
+}
