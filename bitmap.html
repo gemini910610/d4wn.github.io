@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>bit map</title>
+    </head>
+    <body>
+        <span>width</span>
+        <input id="width" value="5">
+        <span>height</span>
+        <input id="height" value="5">
+        <button onclick="generate()">generate</button>
+        <br><br>
+        <span>white</span>
+        <input id="white" value="0">
+        <span>black</span>
+        <input id="black" value="1">
+        <button onclick="result()">result</button>
+        <br><br>
+        <div id="buttons"></div>
+        <br>
+        <div style="border: 3px solid #FFAC55;padding: 5px;">
+            <span>preview</span>
+            <pre id="ans"></pre>
+        </div>
+        <br>
+        <div style="border: 3px solid #5fc3ff;padding: 5px;">
+            <span>string</span>
+            <pre id="code"></pre>
+        </div>
+        <br>
+        <div style="border: 3px solid #82c373;padding: 5px;">
+            <span>c++ code</span>
+            <pre id="loop"></pre>
+        </div>
+    </body>
+    <script>
+        args = [];
+        width = 0;
+        height = 0;
+
+        function generate()
+        {
+            width = document.getElementById("width").value;
+            height = document.getElementById("height").value;
+            args = [];
+            for(i = 0;i < height;i++)
+            {
+                args.push([]);
+                for(j = 0;j < width;j++)
+                {
+                    args[i].push(0);
+                }
+            }
+            buttons = document.getElementById("buttons");
+            buttons.innerHTML = "";
+            for(i = 0;i < height;i++)
+            {
+                for(j = 0;j < width;j++)
+                {
+                    buttons.innerHTML += create(i,j);
+                }
+                buttons.innerHTML += "<br>";
+            }
+            code = document.getElementById("code");
+            code.innerText = "";
+            loop = document.getElementById("loop");
+            loop.innerText = "";
+        }
+
+        function create(x,y)
+        {
+            html = "<button ";
+            html += "id='"+x+"_"+y+"' ";
+            html += "onclick='func("+x+","+y+")'>";
+            html += "("+x+","+y+")";
+            html += "</button>";
+            return html;
+        }
+
+        function func(x,y)
+        {
+            button = document.getElementById(x+"_"+y);
+            if(args[x][y] == 0)
+            {
+                button.style.background = "black";
+                args[x][y] = 1;
+            }
+            else
+            {
+                button.style.background = "";
+                args[x][y] = 0;
+            }
+        }
+
+        function result()
+        {
+            white = document.getElementById("white").value;
+            black = document.getElementById("black").value;
+            ans = document.getElementById("ans");
+            code = document.getElementById("code");
+            loop = document.getElementById("loop");
+            ans_str = "";
+            code_str = "";
+            loop_str = "int args["+height+"]["+width+"] = {";
+            for(i = 0;i < height;i++)
+            {
+                loop_str += "{";
+                for(j = 0;j < width;j++)
+                {
+                    loop_str += args[i][j];
+                    if(args[i][j] == 1)
+                    {
+                        ans_str += black;
+                        code_str += black;
+                    }
+                    else
+                    {
+                        ans_str += white;
+                        code_str += white;
+                    }
+                    if(j != width-1)
+                    {
+                        loop_str += ",";
+                    }
+                }
+                ans_str += "\n";
+                code_str += "\\n";
+                loop_str += "}"
+                if(i != height-1)
+                {
+                    loop_str += ",";
+                }
+            }
+            loop_str += "};\n";
+            loop_str += forLoop(height,width,white,black);
+            ans.innerText = ans_str;
+            code.innerText = code_str;
+            loop.innerText = loop_str;
+        }
+
+        function forLoop(x,y,white,black)
+        {
+            forCode = "string black = \""+black+"\";\n";
+            forCode += "string white = \""+white+"\";\n"
+            forCode += "for(int i = 0;i < "+height+";i++)\n";
+            forCode += "{\n";
+            forCode += "    for(int j = 0;j < "+width+";j++)\n";
+            forCode += "    {\n";
+            forCode += "        cout << ((args[i][j] == 0)?white:black);\n";
+            forCode += "    }\n";
+            forCode += "    cout << endl;\n"
+            forCode += "}";
+            return forCode;
+        }
+    </script>
+</html>
