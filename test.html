@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>test</title>
+    </head>
+    <body>
+        <video id="video" height="640px" src="test.mp4" oncontextmenu = "return false;"></video>
+        <br>
+        <button id="button" onclick="func();">play</button>
+    </body>
+    <script>
+        state = 0;
+        function func()
+        {
+            button = document.getElementById("button");
+            video = document.getElementById("video");
+            if(state == 0)
+            {
+                state = 1;
+                video.play();
+                button.innerText = "pause";
+            }
+            else
+            {
+                state = 0;
+                video.pause();
+                button.innerText = "play";
+            }
+        }
+    </script>
+</html>
